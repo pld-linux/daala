@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Daala - kodek obrazu następnej generacji
 Name:		daala
 Version:	0.0
 %define	snap	20130928
-Release:	0.%{snap}.1
+Release:	0.%{snap}.2
 License:	BSD
 Group:		Libraries
 # git clone https://git.xiph.org/daala.git
