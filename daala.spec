@@ -1,22 +1,27 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# do not build and package API docs
+%bcond_without	tests		# unit tests
 #
 Summary:	Daala next-generation video codec
 Summary(pl.UTF-8):	Daala - kodek obrazu następnej generacji
 Name:		daala
 Version:	0.0
-%define	snap	20130928
+%define	snap	20140214
 Release:	0.%{snap}.1
 License:	BSD
 Group:		Libraries
 # git clone https://git.xiph.org/daala.git
+# cd daala && ./update_version && cd ..
+# tar cJf daala.tar.xz daala
 Source0:	%{name}.tar.xz
-# Source0-md5:	b3ab1702b39a35bb564861a84863584f
+# Source0-md5:	95bb883af28b16ff1312960cc52a2282
 URL:		http://xiph.org/daala/
 BuildRequires:	SDL-devel
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1:1.11
+%{?with_tests:BuildRequires:	check-devel >= 0.9.8}
+BuildRequires:	libjpeg-devel
 BuildRequires:	libogg-devel >= 1:1.3
 BuildRequires:	libpng-devel
 BuildRequires:	libtheora-devel
@@ -93,8 +98,13 @@ Dokumentacja API bibliotek Daala.
 %{__automake}
 %configure \
 	%{!?with_apidocs:--disable-doc} \
-	--disable-silent-rules
+	--disable-silent-rules \
+	%{!?with_tests:--disable-unit-tests}
 %{__make}
+
+%if %{with tests}
+%{__make} check
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
