@@ -2,13 +2,14 @@
 # Conditional build:
 %bcond_without	apidocs		# do not build and package API docs
 %bcond_without	tests		# unit tests
-#
+
+%define	snap	20140214
+%define	rel		2
 Summary:	Daala next-generation video codec
 Summary(pl.UTF-8):	Daala - kodek obrazu następnej generacji
 Name:		daala
 Version:	0.0
-%define	snap	20140214
-Release:	0.%{snap}.1
+Release:	0.%{snap}.%{rel}
 License:	BSD
 Group:		Libraries
 # git clone https://git.xiph.org/daala.git
@@ -42,8 +43,8 @@ distribute digital media format and reference implementation with
 technical performance superior to H.265.
 
 %description -l pl.UTF-8
-Daala to nazwa kodowa nowej technologii kompresji obrazu. Próby te
-są efektem współpracy Mozilla Foundation, Xiph.Org oraz innych
+Daala to nazwa kodowa nowej technologii kompresji obrazu. Próby te są
+efektem współpracy Mozilla Foundation, Xiph.Org oraz innych
 współpracowników.
 
 Celem projektu jest dostarczenie wolnego w implementacji, użyciu i
