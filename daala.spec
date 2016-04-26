@@ -4,7 +4,7 @@
 %bcond_without	tests		# unit tests
 
 %define	snap	20140214
-%define	rel		2
+%define	rel		3
 Summary:	Daala next-generation video codec
 Summary(pl.UTF-8):	Daala - kodek obrazu następnej generacji
 Name:		daala
@@ -81,6 +81,9 @@ Statyczne biblioteki Daala.
 Summary:	Daala API documentation
 Summary(pl.UTF-8):	Dokumentacja API bibliotek Daala
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API documentation for Daala libraries.
