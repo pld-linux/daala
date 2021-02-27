@@ -81,9 +81,7 @@ Statyczne biblioteki Daala.
 Summary:	Daala API documentation
 Summary(pl.UTF-8):	Dokumentacja API bibliotek Daala
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for Daala libraries.
